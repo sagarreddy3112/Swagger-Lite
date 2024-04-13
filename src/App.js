@@ -11,7 +11,11 @@ function App() {
   const [loading, setLoading] = useState(false);
   const handleApply = async () => {
     try {
-      if (!correlationId || !url) {
+      if (apiType === 'get' && !url) {
+        alert('Please fill in Url fields');
+        return;
+      }
+      if (!correlationId && apiType !== 'get') {
         alert('Please fill in all fields');
         return;
       }
