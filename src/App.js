@@ -31,7 +31,7 @@ function App() {
       if (apiType === 'get') {
         res = await axios.get(url);
       } else {
-        res = await axios.post(url, requestBody, { headers: headers });
+        res = await axios[apiType](url, requestBody, { headers: headers });
       }
 
       setResponse(JSON.stringify(res.data, null, 2));
